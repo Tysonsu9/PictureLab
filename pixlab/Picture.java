@@ -158,7 +158,21 @@ public class Picture extends SimplePicture
          
      }
     }
-  
+   public void mirrorHorizontal()
+   {
+       Pixel[][]pixels = this.getPixels2D();
+       Pixel topPixel = null;
+       Pixel bottomPixel = null;
+       int height = pixels.length;
+       
+       for (int row = 0; row<height/2; row++)
+        for (int col = 0; col<pixels[0].length; col++){
+            topPixel = pixels[row][col];
+            bottomPixel = pixels[height - 1 - row][col];
+            bottomPixel.setColor(topPixel.getColor());
+        }
+       
+      }
   /** Mirror just part of a picture of a temple */
   public void mirrorTemple()
   {
@@ -182,7 +196,36 @@ public class Picture extends SimplePicture
       }
     }
   }
-  
+   public void mirrorArms()
+ {
+  Pixel topPixel = null;
+  Pixel botPixel = null;
+    Pixel[][] pixels = this.getPixels2D();
+
+ // loop through the rows
+ for (int row = 155; row < 191; row++)
+ {
+ // loop through the columns
+ for (int col = 98; col < 169; col++)
+ {
+ topPixel = pixels[row][col];
+ botPixel = pixels[191-row+191][col];
+ botPixel.setColor(topPixel.getColor());
+ }
+ }
+
+ // loop through the rows
+ for (int row = 155; row < 191; row++)
+ {
+ // loop through the columns
+ for (int col = 238; col < 296; col++)
+ {
+ topPixel = pixels[row][col];
+ botPixel = pixels[191-row+191][col];
+ botPixel.setColor(topPixel.getColor());
+ }
+ }
+ }
   /** copy from the passed fromPic to the
     * specified startRow and startCol in the
     * current picture
@@ -219,14 +262,14 @@ public class Picture extends SimplePicture
   {
     Picture flower1 = new Picture("flower1.jpg");
     Picture flower2 = new Picture("flower2.jpg");
-    this.copy(flower1,0,0);
-    this.copy(flower2,100,0);
-    this.copy(flower1,200,0);
+    this.copy(flower1,0,20);
+    this.copy(flower2,100,40);
+    this.copy(flower1,200,60);
     Picture flowerNoBlue = new Picture(flower2);
     flowerNoBlue.zeroBlue();
-    this.copy(flowerNoBlue,300,0);
-    this.copy(flower1,400,0);
-    this.copy(flower2,500,0);
+    this.copy(flowerNoBlue,300,80);
+    this.copy(flower1,400,100);
+    this.copy(flower2,500,120);
     this.mirrorVertical();
     this.write("collage.jpg");
   }
