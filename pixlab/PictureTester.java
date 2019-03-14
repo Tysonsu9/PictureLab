@@ -57,7 +57,13 @@ public class PictureTester
     canvas.createCollage();
     canvas.explore();
   }
-  
+  public static void testCopy()
+  {
+      Picture ocean = new Picture("beach.jpg");
+      Picture snowman = new Picture("snowman.jpg");
+      ocean.copy(snowman,10,10,60,160,180,230); 
+      ocean.explore();
+  }
   /** Method to test edgeDetection */
   public static void testEdgeDetection()
   {
@@ -71,6 +77,25 @@ public class PictureTester
     caterpillar.mirrorHorizontal();
     caterpillar.explore();
   }
+  public static void mirrorGull()
+  {
+    Picture snowman = new Picture("snowman.jpg");
+   snowman.mirrorHorizontal();
+   snowman.explore();
+  }
+  public static void mirrorArms()
+  {
+  Picture snowman = new Picture("snowman.jpg");
+  snowman.mirrorArms();
+  snowman.explore();
+  }
+  public static void mirrorTemple()
+  {
+  Picture temple = new Picture("temple.jpg");
+  temple.mirrorTemple();
+  temple.explore();
+  }
+  
   /** Main method for testing.  Every class can have a main
     * method in Java */
   public static void main(String[] args)
@@ -91,8 +116,8 @@ public class PictureTester
     //testMirrorArms();
     //testMirrorGull();
     //testMirrorDiagonal();
-    testCollage();
-    //testCopy();
+    //testCollage();
+    testCopy();
     //testEdgeDetection();
     //testEdgeDetection2();
     //testChromakey();
