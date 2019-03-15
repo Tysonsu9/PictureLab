@@ -77,7 +77,7 @@ public class PictureTester
     caterpillar.mirrorHorizontal();
     caterpillar.explore();
   }
-  public static void mirrorGull()
+  public static void testMirrorGull()
   {
     Picture snowman = new Picture("snowman.jpg");
    snowman.mirrorHorizontal();
@@ -104,21 +104,21 @@ public class PictureTester
     // and comment out the ones you don't want
     // to run
     //testZeroBlue();
-    testKeepOnlyBlue();
+    //testKeepOnlyBlue();
     //testKeepOnlyRed();
     //testKeepOnlyGreen();
     //testNegate();
-    testMirrorHorizontal();
+    //testMirrorHorizontal();
     //testGrayscale();
     //testFixUnderwater();
-    testMirrorVertical();
+    //testMirrorVertical();
     //testMirrorTemple();
     //testMirrorArms();
-    //testMirrorGull();
+    testMirrorGull();
     //testMirrorDiagonal();
     //testCollage();
     testCopy();
-    //testEdgeDetection();
+    testEdgeDetection();
     //testEdgeDetection2();
     //testChromakey();
     //testEncodeAndDecode();

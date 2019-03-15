@@ -336,21 +336,6 @@ public class Picture extends SimplePicture
     this.mirrorVertical();
     this.write("collage.jpg");
   }
-  public void mirrorHorizontal()
-   {
-       Pixel[][]pixels = this.getPixels2D();
-       Pixel topPixel = null;
-       Pixel bottomPixel = null;
-       int height = pixels.length;
-       
-       for (int row = 0; row<height/2; row++)
-        for (int col = 0; col<pixels[0].length; col++){
-            topPixel = pixels[row][col];
-            bottomPixel = pixels[height - 1 - row][col];
-            bottomPixel.setColor(topPixel.getColor());
-        }
-       
-      }
   
  public void copy(Picture fromPic, 
                  int startRow, int startCol,
@@ -386,13 +371,13 @@ public class Picture extends SimplePicture
     Pixel rightPixel = null;
     Pixel[][] pixels = this.getPixels2D();
     Color rightColor = null;
-    for (int row = 0; row < pixels.length; row++)
+    for (int row = 0; row < pixels.length-1; row++)
     {
       for (int col = 0; 
-           col < pixels[0].length-1; col++)
+           col < pixels[0].length; col++)
       {
         leftPixel = pixels[row][col];
-        rightPixel = pixels[row][col+1];
+        rightPixel = pixels[row+1][col];
         rightColor = rightPixel.getColor();
         if (leftPixel.colorDistance(rightColor) > 
             edgeDist)
@@ -403,6 +388,7 @@ public class Picture extends SimplePicture
     }
   }
   
+
   
   /* Main method for testing - each class in Java can have a main 
    * method 
